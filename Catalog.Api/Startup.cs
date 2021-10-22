@@ -95,7 +95,7 @@ namespace Catalog.Api
                             {
                                 name = entry.Key,
                                 status = entry.Value.Status.ToString(),
-                                exception = entry.Value.Exception != null ? entry.Value.Exception.Message : "none"
+                                exception = entry.Value.Exception != null ? entry.Value.Exception.Message : "none",
                                 duration = entry.Value.Duration.ToString()
                             })
                         });

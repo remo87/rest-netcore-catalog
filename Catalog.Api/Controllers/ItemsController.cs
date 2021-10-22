@@ -1,5 +1,4 @@
-﻿using Catalog.Api.DTOs;
-using Catalog.Api.Entities;
+﻿using Catalog.Api.Entities;
 using Catalog.Api.Repositories;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -15,15 +14,19 @@ namespace Catalog.Api.Controllers
     {
         private readonly IItemsRepository repository;
 
+        //private readonly ILogger logger;
+
         public ItemsController(IItemsRepository repository)
         {
             this.repository = repository;
+            //this.logger = logger;
         }
 
         [HttpGet]
         public async Task<IEnumerable<ItemDto>> GetItemsAsync()
         {
             var items = (await repository.GetItemsAsync()).Select(item => item.AsDto());
+            //logger.LogInformation($"{DateTime.UtcNow.ToString("hh:mm:ss")}: Retrieved {items.Count()} items");
             return items;
         }
 
@@ -47,12 +50,15 @@ namespace Catalog.Api.Controllers
             {
                 Id = Guid.NewGuid(),
                 Name = itemDto.Name,
+                Description = itemDto.Description,
                 Price = itemDto.Price,
                 CreateDate = DateTimeOffset.UtcNow
             };
             await repository.CreateItemAsync(item);
 
-            return CreatedAtAction(nameof(GetItemAsync), new { Id = item.Id }, item);
+            ItemDto response = item.AsDto();
+
+            return CreatedAtAction(nameof(GetItemAsync), new { Id = response.Id }, response);
         }
 
         [HttpPut("{id}")]
@@ -64,13 +70,10 @@ namespace Catalog.Api.Controllers
                 return NotFound();
             }
 
-            Item updatedItem = existingItem with
-            {
-                Name = itemDto.Name,
-                Price = itemDto.Price
-            };
+            existingItem.Name = itemDto.Name;
+            existingItem.Price = itemDto.Price;
 
-            await repository.UpdateItemAsync(updatedItem);
+            await repository.UpdateItemAsync(existingItem);
 
             return NoContent();
         }

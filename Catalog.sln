@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31702.278
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Catalog.Api", "Catalog.Api\Catalog.Api.csproj", "{A76E735B-E0D4-4365-AED1-5CDD9481BE89}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Catalog.Api", "Catalog.Api\Catalog.Api.csproj", "{A76E735B-E0D4-4365-AED1-5CDD9481BE89}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Catalog.UnitTests", "Catalog.UnitTests\Catalog.UnitTests.csproj", "{CDC1C408-6D07-4059-BEE9-B8C04CE1B5D2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{A76E735B-E0D4-4365-AED1-5CDD9481BE89}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A76E735B-E0D4-4365-AED1-5CDD9481BE89}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A76E735B-E0D4-4365-AED1-5CDD9481BE89}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CDC1C408-6D07-4059-BEE9-B8C04CE1B5D2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CDC1C408-6D07-4059-BEE9-B8C04CE1B5D2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CDC1C408-6D07-4059-BEE9-B8C04CE1B5D2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CDC1C408-6D07-4059-BEE9-B8C04CE1B5D2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
